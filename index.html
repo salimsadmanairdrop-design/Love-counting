@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Love Countdown ❤️</title>
+<style>
+body{
+    margin:0;
+    padding:0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    color:white;
+    text-align:center;
+}
+h1{
+    font-size:3rem;
+    margin-bottom:20px;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+}
+#time{
+    font-size:2rem;
+    background: rgba(255,255,255,0.15);
+    padding:20px 40px;
+    border-radius:20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+</style>
+</head>
+<body>
+
+<h1>Counting Our Love ❤️</h1>
+<div id="time">Loading...</div>
+
+<script>
+// Countdown starts from 13 Feb 2025, 11:14 AM
+let startDate = new Date("2025-02-13T11:14:00");
+
+setInterval(()=>{
+    let now = new Date();
+    let diff = now - startDate;
+
+    if(diff < 0){
+        document.getElementById("time").innerHTML =
+        "Counting down to our forever ❤️";
+        return;
+    }
+
+    let days = Math.floor(diff / (1000*60*60*24));
+    let hours = Math.floor((diff/(1000*60*60)) % 24);
+    let minutes = Math.floor((diff/(1000*60)) % 60);
+    let seconds = Math.floor((diff/1000) % 60);
+
+    document.getElementById("time").innerHTML =
+    days + " Days : " + hours + " Hours : " +
+    minutes + " Minutes : " + seconds + " Seconds ❤️";
+
+},1000);
+</script>
+
+</body>
+</html>
